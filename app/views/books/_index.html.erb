@@ -18,16 +18,16 @@
         <td><%= book.body %></td>
 
 
-           <div id="favorite_buttons_<%= book.id %>">
-　　　     <%= render "favorites/favorite", locals: {book: book} %>
-          </div>
+           <td class="favorite-btn">
+             <%= render "favorites/favorite", book: book %></td>
+
 
             <p><%= link_to "#{book.book_comments.count} コメント", book_path(book.id) %></p>
           </td>
       </tr>
     <% end %>
-    
-    
+
+
     collection:
   </tbody>
 </table>

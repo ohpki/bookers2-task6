@@ -51,6 +51,7 @@
                 <% @book.book_comments.each do |book_comment| %>
                   <p>
                     <%= image_tag book_comment.user.get_profile_image, size:"60x60"%>
+                    <td class="favorite-btn"><%= render "favorites/favorite-btn", book: book %></td>
                     <%= book_comment.comment %>
 
                     <% if book_comment.user == current_user %>
@@ -68,6 +69,10 @@
                   <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %><br>
                   <%= f.submit "送信する" %>
                 <% end %>
+                
+                
+                
+                
 
 
               </div>
