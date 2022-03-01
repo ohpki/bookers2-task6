@@ -1,3 +1,8 @@
+
+<% content_for(:body_attributes) do %>
+    data-turbolinks="false"
+<% end %>
+
 <% if book.favorited_by?(current_user) %>
             <p>
               <%= link_to book_favorites_path(book), class:"heart", method: :delete, remote: true do %>
