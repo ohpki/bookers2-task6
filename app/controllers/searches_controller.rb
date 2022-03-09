@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-   before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def search
     @range = params[:range]
@@ -13,5 +13,4 @@ class SearchesController < ApplicationController
       @word = params[:word]
     end
   end
-
 end
