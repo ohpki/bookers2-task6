@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   devise_for :users
   root :to => 'homes#top'
   get "home/about" => "homes#about"
-  resources :users, only: [:index,:show,:edit,:update] do
+  resources :users, only: [:index, :show, :edit, :update] do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
     member do
-    get :follows, :followers
+      get :follows, :followers
+    end
+    resource :relationships, only: [:create, :destroy]
   end
-  resource :relationships, only: [:create, :destroy]
-  end
-  resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
+  resources :books, only: [:index, :show, :edit, :create, :destroy, :update] do
     resources :book_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
